@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/lesson03/es/test_string",
-            "args": ["prova","bella"],
+            "args": ["bella","ll"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

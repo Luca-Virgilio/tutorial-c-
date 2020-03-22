@@ -68,11 +68,13 @@ char *copy(char *word)
     if (word != NULL)
     {
         int len = string_length(word);
-        char copy[len];
-        char *p_copy = copy;
+        // char copy[len];
+        char *p_copy;
+        // array allocated dinammically
+        p_copy = new char[len];
         for (int i = 0; i < len; i++)
         {
-            copy[i] = *(word + i);
+            p_copy[i] = *(word + i);
         }
         return p_copy;
     }
@@ -83,28 +85,81 @@ char *copy(char *word)
     }
 }
 
-char *concat(char *word1, char *word2){
-    if (word1 != NULL && word2 != NULL ){
-        int size = string_length(word1)+string_length(word2);
-        char * p_res; 
-        p_res = new char [size];
-        char *res = p_res;        
-        while(*word1 !='\0'){
-            *res=*word1;
+char *concat(char *word1, char *word2)
+{
+    if (word1 != NULL && word2 != NULL)
+    {
+        int size = string_length(word1) + string_length(word2);
+        char *p_res;
+        // array allocated dinammically
+        p_res = new char[size];
+        char *res = p_res;
+        while (*word1 != '\0')
+        {
+            *res = *word1;
             res++;
             word1++;
         }
-          while(*word2 !='\0'){
-            *res=*word2;
+        while (*word2 != '\0')
+        {
+            *res = *word2;
             res++;
             word2++;
         }
         return p_res;
-    } else if (word1 != NULL){
+    }
+    else if (word1 != NULL)
+    {
         char *res = copy(word1);
         return res;
-    } else if (word2 != NULL){
+    }
+    else if (word2 != NULL)
+    {
         char *res = copy(word2);
         return res;
-    } else return NULL;
+    }
+    else
+        return NULL;
+}
+
+bool equals(char *p, char *token)
+{
+    if (token != NULL && p != NULL)
+    {
+        bool res = true;
+        int len = string_length(token);
+        for (int i = 0; res && i < len; i++)
+        {
+            if (*(p + i) != *(token + i))
+                res = false;
+        }
+        return res;
+    }
+    else
+        return false;
+}
+char *index(char *word, char *token)
+{
+    if (word != NULL)
+    {
+        if (token != NULL)
+        {   
+            int len = string_length(word);
+            char * p = word + len; 
+            bool flag = true;
+            for (int i = 0; flag && i < len; i++)
+            {
+                if (equals(word + i, token))
+                {
+                    flag = false;
+                    p = word + i;
+                }
+            }
+            return p;
+        }
+        else
+            return NULL;
+    }
+    else
+        return NULL;
 }
