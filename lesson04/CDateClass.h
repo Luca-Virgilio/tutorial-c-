@@ -6,6 +6,7 @@ class CDate
     // access modifier
 public:
     // in absence of modifier, is private.
+    // friend is a modifier that permit access to function, class 
     typedef int date_elem;
 
 private:
@@ -14,15 +15,17 @@ private:
     bool isvalid(date_elem pD, date_elem pM, date_elem pY);
 
 public:
-    CDate(void); // default constructor
+    CDate(void) ; // default constructor
     CDate(date_elem pD, date_elem pM, date_elem pY);
     CDate(const CDate& p); // copy constructor
     CDate &operator=(const CDate &Y); // assignment operator
     //distructor
     // ~CDate(void);
+    int getDay(void) const;
+    int getMonth(void)const;
+    int getYear(void) const;
 
     void init(date_elem pD, date_elem pM, date_elem pY);
-
     void add_day(date_elem pD);
     void add_month(date_elem pM);
     void add_year(date_elem pY);

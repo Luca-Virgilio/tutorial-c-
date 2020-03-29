@@ -1,10 +1,9 @@
 #include "CDateClass.h"
 
-CDate::CDate(void){
-    mDay=1;
-    mMonth =1;
-    mYear= 1900;
-}
+// initialization list
+// in general more efficient. 
+CDate::CDate(void): mDay(0), mMonth(0), mYear(0){}
+
 CDate:: CDate(date_elem pD, date_elem pM, date_elem pY){
     mDay=pD;
     mMonth= pM;
@@ -15,6 +14,16 @@ CDate::CDate(const CDate& p){
     mMonth = p.mMonth;
     mYear = p.mYear;
 }
+
+int CDate::getDay(void) const{
+    return mDay;
+}
+int CDate::getMonth(void) const {
+    return mMonth;
+}
+int CDate::getYear(void) const {
+    return mYear;
+} 
 
 void CDate::init(date_elem pD, date_elem pM, date_elem pY){
     if(isvalid(pD, pM, pY)){
@@ -54,3 +63,7 @@ bool CDate::isvalid(date_elem pD, date_elem pM, date_elem pY){
     if(pD <= 31 && pM <=12 ) return true;
     else return false;
 }
+
+//static variable exist indipendently of class's istance
+// static function use only static variable o static function
+// one of the static function must be public
