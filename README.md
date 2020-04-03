@@ -21,15 +21,86 @@ Multiple definition of a file or a library can generate errors. Thus before decl
 ```
 #ifndef fileName
 #define fileName
-.
-. 
-.
+...
 #endif
 ```
-
-
-
+In a project, you must always include a main function in a file. The main function retun a int value (0 if the execution is completed without errors).
+```
+int main (int argc, char * argv []){
+    ...
+    return 0;
+}
+```
 ### 02- Data type
-### 03-
+Primitive types are int, double, float, char and bool. Different types have differente size. Char type takes up a space of 1 byte (at least). you can use
+```
+sizeof(variable)
+```
+to discover the size of a variable. The function returns value compared to char size (ex: 4 is 4*char size). 
+
+Pointers are data types that contain memory address of a specific varible. you declare a pointer like:
+```
+varibleType *name = &variable;
+```
+You can access to the value of a memory location saved in a poiter, usign a dereference operator *
+```
+int *p_int = &num;
+cout << p_int  //memory address
+cout << *p_int  //value of memory address
+```  
+You can also define a pointer of a pointer ecc...
+You can declare an array explicity or implicity. You declare implicity an array if you define it. You can access any cell with the standard sintax. you can also declare an array of pointer. a pointer of an array is a pointer to the first cell of the array.
+```
+int nameArray[5];
+int nameArray2[]= {1,2,3,4,5} // array definition
+int nameArray[0]=1;
+
+int *pointerArray[3];
+```  
+You can define a struct with different type of data type (primitive or composite). In the end of the curly braces you must insert a semicolon. You pay attention to the order of the varaibles in a struct. Different order can use more memory space.
+```
+struct Point {
+    int x;
+    int y;
+}; // attention
+``` 
+You can enumerate a varible using the enum type. Every possible enum's value has an implicit or explicit number value.
+```
+enum day {mon=1,tue,wen,thu,fri,sat,sun};
+	// implicit,  tue = x+1, wen= x+2 ...
+``` 
+You can define new data types using the keyword typedef.
+```
+typedef unsigned long int uli;
+```
+
+Const is a keyoword to identify a variable or a pointer read-only. These are some examples:
+```
+const int a = 10; // constant variable
+	
+int b = 200;
+const int *p_b = &b;	//pointer to constant variable
+	
+int c = 200;
+int *const p_c = &c; //constant pointer
+	
+int e = 20;
+const int *const p_e=&e; // constant pointer to constant variable
+``` 
+
+In c++ you can cast a varible in two different ways: implicit cast or explicit cast. Implicit cast is not recommended, because is more difficult to find it in the code. const cast is used for const variables.   
+```
+double a= 10.2;
+	int c = 5;
+	const int *p_a = &c;
+	char *b;
+	// semplice
+	cout << "a=" << static_cast<int>(a) << endl;
+	// se variabile costante
+	cout << "p_a=" << const_cast<int *>(p_a) << endl;
+	//
+	b = reinterpret_cast<char *>(&a);
+```
+### 03- Functions
 ### 04- Class
 ### 05- Operator
