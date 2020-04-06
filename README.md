@@ -141,6 +141,18 @@ void funRef(int &n)
     n = 70;
 }
 ```   
-
+If you use the keyword inline before the definition of a function, it will be sobstitute, at compile time, every time it will be called.  
+You can define a varible outside of the methods, after the includes. It has global scope, and in every part of the code you can include it, using:
+```
+extern tipe var;
+``` 
+Data allocated in the stack have local visibility and local life's cycle. Static data have scope visibility and global life's cycle. All of these are deallocated automatically.  
+Instead dynamic data are allocated in the heap, with the keyword new. The new operator return a pointer. All of these MUST be deallocated explicity, with the keyword delete. Is dangerous deallocated an object already deallocated, so you must set its pointer equals null (zero). Add [] is you want deallocate an array.
+```
+int *arr= new int[3];
+delete [] arr;
+arr = 0;
+```   
+Using namespace you can create a logic space that group varaibles and functions. Do not use it in .h file
 ### 04- Class
 ### 05- Operator
