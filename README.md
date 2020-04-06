@@ -110,8 +110,8 @@ double a= 10.2;
 	b = reinterpret_cast<char *>(&a);
 ```
 ### 03- Functions
-When you define a function, your can pass the inputs by value, by pointer and by reference. Passing a parameter by value means that it is created a copy of the value in an other memory cell. Because of that, functions by values are used only when the parameters are few and small. The local variables and the parameters are completly indipendently. 
-Passing a parameter by pointer means that the function uses the exact cell passed in input but its pointer is a copy that as local scope in the function. To do that, the parameters must be an address (&var). In the function you need yo check is the pointer is NULL. Drawback of this strategy is that you haven't the object in the function but only a pointer, so you can dereference the pointer to access the data. Arrays can't passing as parameters. You use the pointer.
+When you define a function, your can pass the inputs by value, by pointer and by reference. Passing a parameter by value means that it is created a copy of the value in an other memory cell. Because of that, functions by values are used only when the parameters are few and small. The local variables and the parameters are completly indipendently.   
+Passing a parameter by pointer means that the function uses the exact cell passed in input but its pointer is a copy that as local scope in the function. To do that, the parameters must be an address (&var). In the function you need yo check is the pointer is NULL. Drawback of this strategy is that you haven't the object in the function but only a pointer, so you can dereference the pointer to access the data. Arrays can't passing as parameters. You use the pointer.  
 Passing a parameter by reference means that the function can access exactly to the pointer and the data object in input. Every modification has executed into the function, has visible on the parameter. It's impossible distinguishing a function by value or by reference. You must see the function's definition/declaration.
 ```
 int main()
